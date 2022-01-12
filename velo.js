@@ -19,6 +19,10 @@ function getApi(url) {
     })
 }
 
+function esp() {
+    display.innerHTML += "<p>";
+}
+
 function stations(jsonData) {
     display.innerHTML ="";
 
@@ -30,6 +34,21 @@ function stations(jsonData) {
         let num_station = document.createElement("div");
         num_station.textContent = `Numéro de la station : ${jsonData.records[i].fields.num_station}`;
         display.appendChild(num_station);
+        esp();
+
+        let adresse = document.createElement("div");
+        adresse.textContent = `Emplacement : :${jsonData.records[i].fields.no} ${jsonData.records[i].fields.street}`;
+        display.appendChild(adresse);
+        esp();
+
+        let service = document.createElement("div");
+        service.textContent = `En service : ${jsonData.records[i].fields.en_service}`;
+        display.appendChild(service)
+        esp();
+
+        let nb_born = document.createElement("div");
+        nb_born.textContent = `Nombre de bornes : ${jsonData.records[i].fields.nb_bornettes}`;
+        display.appendChild(nb_born);
     }
 }
 
